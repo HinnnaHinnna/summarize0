@@ -120,7 +120,9 @@
   overflow-y: auto;
   position: relative;
   flex-direction: column;
-  text-align: justify;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: keep-all;  
 }
 
 #summary-container {
