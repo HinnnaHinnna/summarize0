@@ -124,7 +124,8 @@
   flex-direction: column;
   text-align: left;
   white-space: pre-wrap;
-  word-break: keep-all;  
+  word-break: keep-all; 
+  font-weight: 300;
 }
 
 #summary-container {
