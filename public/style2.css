@@ -205,6 +205,7 @@
   font-size: 12px;
   z-index: 20;
   font-weight: 400;
+  padding: 0px 8px;
 }
 
 #translatedText {
