@@ -154,6 +154,7 @@
   position: relative;
   flex-direction: column;
   text-align: center;
+  font-weight: 400;
 }
 
 #btn-container {
@@ -185,6 +186,7 @@
 #stop-button:hover,
 #summarize-button:hover {
   background-color: #aeafb0;
+  font-weight: 400;
 }
 
 #loading-message,
