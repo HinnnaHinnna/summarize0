@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 2.5;
+  box-sizing: border-box;
+  hyphens: auto;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+:root {
+  --maincolor: #1b3dff;
+  --sub-color: #ff00f7;
+  --hover-color: #aeafb0;
+  --background-color: #ffffff;
+  --scrollbar-color: #f1f1f2;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard.woff') format('woff');
+  font-style: normal;
+}
+
+.tooltip {
+  padding: 0px 5px;
+  display: none;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background-color: var(--sub-color);
+  color: white;
+  font-size: 10px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  font-weight: 700;
+}
+
+.text-block-container {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.text-block {
+  margin-top: 1px;
+  width: 10vw;
+  height: 30px;
+  resize: horizontal;
+  overflow: hidden;
+  padding-top: 3px;
+  padding-left: 6px;
+  border-radius: 0px;
+  border: 1px solid #efefef;
+  background-color: var(--background-color);
+  user-select: none;
+  white-space: nowrap;
+  color: var(--maincolor);
+  font-weight: 500;
+  text-align: left;
+}
+
+.text-block[draggable="true"] {
+  cursor: move;
+}
+
+.text-block-container:hover .tooltip {
+  display: block;
+}
+
+#content-container {
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  margin-bottom: 100px;
+  padding-top: 155px;
+  width: 100%;
+  display: flex;
+  gap: 7px;
+  font-size: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+#bottom-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: var(--maincolor);
+  z-index: 5;
+}
+
+#bottom-text {
+  margin-bottom: 10px;
+  padding: 0% 40%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: var(--maincolor);
+  border-radius: 0px;
+  overflow-y: auto;
+  position: relative;
+  flex-direction: column;
+  text-align: justify;
+}
+
+#summary-container {
+  margin: 0px;
+  position: fixed;
+  top: 252px;
+  width: 100vw;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#summary-box {
+  margin-bottom: 20px;
+  margin-top: -33px;
+  padding-left: 0%;
+  padding-right: 0%;
+  width: 100vw;
+  display: flex;
+  color: var(--sub-color);
+  border-radius: 0px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+}
+
+#btn-container {
+  bottom: 120px;
+  padding-left: 0%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  color: #b0b0b0;
+  z-index: 15;
+}
+
+#speak-button,
+#stop-button,
+#summarize-button {
+  margin: 3px;
+  padding: 0px 8px;
+  border: none;
+  border-radius: 0px;
+  background-color: var(--sub-color);
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+#speak-button:hover,
+#stop-button:hover,
+#summarize-button:hover {
+  background-color: #aeafb0;
+}
+
+#loading-message,
+#alert-message {
+  display: none;
+  position: fixed;
+  top: 41.3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3px 10px;
+  background-color: var(--maincolor);
+  color: white;
+  font-size: 10px;
+  z-index: 20;
+}
+
+#translatedText {
+  display: none;
+}
+
+#content::-webkit-scrollbar,
+#bottom-text::-webkit-scrollbar {
+  width: 50%;
+}
+
+#content::-webkit-scrollbar-thumb,
+#bottom-text::-webkit-scrollbar-thumb {
+  height: 10%;
+  width: 10%;
+  background: #f1f1f2;
+}
+
+#content::-webkit-scrollbar-track,
+#bottom-text::-webkit-scrollbar-track {
+  background: #f1f1f2;
+}
+
+@media (max-width: 768px) {
+  #content {
+    margin-top: 10%;
+    padding-top: 10%;
+    grid-template-columns: repeat(50, 1fr);
+  }
+}
