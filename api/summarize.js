@@ -1,28 +1,27 @@
 export default async function handler(req, res) {
-  const { inputText } = req.body;
-  const prompt = "다음 텍스트를 3~5줄로 요약해줘. 핵심 내용만 간단히 정리해줘.";
+  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-  try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          { role: "system", content: prompt },
-          { role: "user", content: inputText }
-        ],
-        max_tokens: 600,
-        temperature: 0.1
-      })
-    });
-
-    const data = await response.json();
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  if (!OPENAI_API_KEY) {
+    return res.status(500).json({ error: 'API key not found' });
   }
+
+  const { inputText, prompt } = req.body;
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: prompt },
+        { role: "user", content: inputText }
+      ],
+    }),
+  });
+
+  const data = await response.json();
+  res.status(200).json({ result: data.choices?.[0]?.message?.content });
 }
