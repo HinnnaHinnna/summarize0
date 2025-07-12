@@ -4,7 +4,7 @@
   line-height: 2;
   box-sizing: border-box;
   hyphens: auto;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
 }
 
@@ -125,7 +125,7 @@
   text-align: left;
   white-space: pre-wrap;
   word-break: keep-all; 
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #summary-container {
