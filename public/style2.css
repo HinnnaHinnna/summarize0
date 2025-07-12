@@ -154,7 +154,8 @@
   position: relative;
   flex-direction: column;
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 #btn-container {
@@ -172,10 +173,10 @@
 #speak-button,
 #stop-button,
 #summarize-button {
-  margin: 3px;
+  margin: 2px;
   padding: 0px 8px;
   border: none;
-  border-radius: 0px;
+  border-radius: 2px;
   background-color: var(--sub-color);
   color: white;
   cursor: pointer;
