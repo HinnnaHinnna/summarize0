@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-  const { inputText, prompt } = req.body;
+  const { inputText } = req.body;
+  const prompt = "다음 텍스트를 3~5줄로 요약해줘. 핵심 내용만 간단히 정리해줘.";
 
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
